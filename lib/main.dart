@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Text('안녕'));
+    return MaterialApp(
+        home: Container(width: 50, height: 50, color: Colors.blue));
   }
 }
