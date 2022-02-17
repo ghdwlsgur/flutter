@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+class MyAppBar extends StatelessWidget {
+  const MyAppBar({required this.title, Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final Widget title;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Container(width: 50, height: 50, color: Colors.blue));
+    return Container(
+        height: 56.0,
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        decoration: BoxDecoration(color: Colors.blue[500])),
   }
 }
+
+void main() {}
