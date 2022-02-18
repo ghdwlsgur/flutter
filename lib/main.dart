@@ -1,17 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({required this.title, Key? key}) : super(key: key);
+void main() {
+  runApp(const MyApp());
+}
 
-  final Widget title;
+class RandomWords extends StatefulWidget {
+  @override
+  _RandomWordsState createState() => _RandomWordsState();
+}
+
+class _RandomWordsState extends State<RandomWords> {
+  final _suggestions = <WordPair>[];
+  final _biggerFont = const TextStyle(fontSize: 18);
+
+  Widget _buildSuggestions() {
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemBuilder: (context, i) {
+        if (i.isOdd) {
+          return const Divider();
+        }
+      }
+    )
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 56.0,
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: BoxDecoration(color: Colors.blue[500])),
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
   }
 }
 
-void main() {}
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Welcome to Flutter')),
+        body: Center(
+          child: RandomWords(),
+        ),
+      ),
+    );
+  }
+}
