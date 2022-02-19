@@ -14,3 +14,14 @@
 
 - lint 적용1: `dart pub add --dev lints` after `pub get`
 - lint 적용2: `flutter pub add --dev flutter_lints` after `pub get`
+
+- development
+  flutter run --target lib/main_development.dart
+- production
+  flutter run --target lib/main_production.dart
+
+- flutter_launcher_icons-development.yaml setting
+- flutter_launcher_icons-production.yaml setting
+
+- cmd run 이미지 생성(production, development)
+  flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons\*
